@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Card } from 'antd';
+
+const gridStyle = {
+  width: '33.3%',
+  textAlign: 'center',
+};
+
 
 class DashBoard extends Component {
   static propTypes = {
@@ -9,7 +16,23 @@ class DashBoard extends Component {
   render() {
     return (
       <div>
-        DashBoard
+        <Card title="仪表盘">
+          <Link to="/app/goods">
+            <Card.Grid style={gridStyle}>
+              货物列表
+            </Card.Grid>
+          </Link>
+          <Link to="/app/users">
+            <Card.Grid style={gridStyle}>
+              用户类表
+            </Card.Grid>
+          </Link>
+          <Link to="/app/orders">
+            <Card.Grid style={gridStyle}>
+              订单列表
+            </Card.Grid>
+          </Link>
+        </Card>
       </div>
     );
   }

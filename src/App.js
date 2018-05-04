@@ -19,16 +19,22 @@ const { Header, Sider, Content } = Layout;
 class App extends Component {
   state = {
     collapsed: false,
+    selectedMenu: this.props.location.pathname.split('/')[2] || 'dashboard',
   };
 
+  componentWillReceiveProps(nextProps) {
+    const selectedMenu =
+      nextProps.location.pathname.split('/')[2] || 'dashboard';
+    this.setState({ selectedMenu }, () => console.log(this.state));
+  }
+
   renderSideMenu = () => {
-    const { location } = this.props;
-    const selectedMenu = location.pathname.split('/')[2] || 'dashboard';
+    const { selectedMenu } = this.state;
     return (
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={[selectedMenu]}
+        selectedKeys={[selectedMenu]}
       >
         <Menu.Item key="dashboard">
           <Link to="/app">
