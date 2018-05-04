@@ -9,7 +9,7 @@ const routes = createRouters();
 
 const Root = () => (
   <Switch>
-    {routes.map(route => <Route key={route.path} {...route} />)}
+    {routes.map(route => <Route key={route.path || 'notmatch'} {...route} />)}
   </Switch>
 );
 

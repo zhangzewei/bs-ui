@@ -23,7 +23,7 @@ class App extends Component {
 
   renderSideMenu = () => {
     const { location } = this.props;
-    const selectedMenu = location.pathname.split('/')[1] || 'dashboard';
+    const selectedMenu = location.pathname.split('/')[2] || 'dashboard';
     return (
       <Menu
         theme="dark"
