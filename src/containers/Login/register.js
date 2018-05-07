@@ -1,27 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Form, Icon, Input, Button } from 'antd';
-import { Link } from 'react-router-dom';
-import './style.css';
-
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Form, Input, Icon, Button } from 'antd';
 const FormItem = Form.Item;
 
-class Login extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
+class Register extends Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <div className="login-container">
         <Form onSubmit={this.handleSubmit} className="login-form">
           <FormItem className="login-title">
-            <h2>登录</h2>
+            <h2>注册</h2>
           </FormItem>
           <FormItem>
             {getFieldDecorator('username', {
@@ -37,15 +26,23 @@ class Login extends Component {
               <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
             )}
           </FormItem>
+          <FormItem>
+            {getFieldDecorator('comfirmPassword', {
+              rules: [{ required: true, message: '请确认密码！' }],
+            })(
+              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="确认密码" />
+            )}
+          </FormItem>
+          <FormItem>
+            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="text" placeholder="填写电话" />
+          </FormItem>
           <FormItem className="login-btns">
             <Button type="primary" htmlType="submit" className="login-form-button">
               登录
             </Button>
-            <Link to="/register">
               <Button className="login-form-button">
                 注册
               </Button>
-            </Link>
           </FormItem>
         </Form>
       </div>
@@ -53,6 +50,6 @@ class Login extends Component {
   }
 }
 
-const WrappedNormalLoginForm = Form.create()(Login);
+const WrappedNormalLoginForm = Form.create()(Register);
 
 export default WrappedNormalLoginForm;
