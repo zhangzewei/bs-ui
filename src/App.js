@@ -96,7 +96,14 @@ class App extends Component {
               logined
             />
           </Header>
-          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+          <Content style={{
+              margin: '24px 16px',
+              padding: 24, 
+              background: '#fff', 
+              minHeight: 280, 
+              height: '100%', 
+              width: '100%'
+            }}>
             <Switch>
               <Route path='/app' exact component={DashBoard} />
               <Route path='/app/users' exact component={Users} />
