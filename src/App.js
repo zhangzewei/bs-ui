@@ -9,7 +9,7 @@ import Users from './containers/Users';
 import Orders from './containers/Orders';
 import Goods from './containers/Goods';
 import NotMatch from './containers/NotMatch';
-import Login from './containers/Login';
+import UserDetail from './containers/Users/detail';
 
 import './index.css';
 import './app.css';
@@ -25,7 +25,7 @@ class App extends Component {
   componentWillReceiveProps(nextProps) {
     const selectedMenu =
       nextProps.location.pathname.split('/')[2] || 'dashboard';
-    this.setState({ selectedMenu }, () => console.log(this.state));
+    this.setState({ selectedMenu });
   }
 
   renderSideMenu = () => {
@@ -102,6 +102,7 @@ class App extends Component {
               <Route path='/app/users' exact component={Users} />
               <Route path='/app/orders' exact component={Orders} />
               <Route path='/app/goods' exact component={Goods} />
+              <Route path='/app/users/detail' exact component={UserDetail} />
               <Route component={NotMatch} />
             </Switch>
           </Content>
