@@ -38,10 +38,12 @@ class Login extends Component {
             )}
           </FormItem>
           <FormItem className="login-btns">
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              登录
-            </Button>
-            <Link to="/register">
+            <Link to="/admin">
+              <Button type="primary" className="login-form-button">
+                登录
+              </Button>
+            </Link>
+            <Link to="/admin/register">
               <Button className="login-form-button">
                 注册
               </Button>

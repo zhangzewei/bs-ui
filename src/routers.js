@@ -1,29 +1,30 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import App from './App';
+import Admin from './containers/Admin';
 import Login from './containers/Login';
 import Register from './containers/Login/register';
 import NotMatch from './containers/NotMatch';
+import Client from './containers/Client';
 
 export default () => [
   {
     path: '/',
     exact: true,
-    render: () => <Redirect to="/app" />
+    component: Client
   },
   {
-    path: '/login',
+    path: '/admin/login',
     exact: true,
     component: Login
   },
   {
-    path: '/register',
+    path: '/admin/register',
     exact: true,
     component: Register
   },
   {
-    path: '/app',
-    component: App
+    path: '/admin',
+    component: Admin
   },
   {
     component: NotMatch,

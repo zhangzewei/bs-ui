@@ -17,17 +17,17 @@ class DashBoard extends Component {
     return (
       <div>
         <Card title="仪表盘">
-          <Link to="/app/goods">
+          <Link to="/admin/goods">
             <Card.Grid style={gridStyle}>
               货物列表
             </Card.Grid>
           </Link>
-          <Link to="/app/users">
+          <Link to="/admin/users">
             <Card.Grid style={gridStyle}>
               用户类表
             </Card.Grid>
           </Link>
-          <Link to="/app/orders">
+          <Link to="/admin/orders">
             <Card.Grid style={gridStyle}>
               订单列表
             </Card.Grid>
